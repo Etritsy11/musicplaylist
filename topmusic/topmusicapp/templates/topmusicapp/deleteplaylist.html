@@ -1,0 +1,17 @@
+{% extends 'topmusicapp/base.html' %} {% block content %}
+<div class="container">
+  <h2>Are you sure you want to delete this playlist?</h2>
+  <form method="POST">
+    {% csrf_token %}{{form.as_p}}<button type="submit" class="btn btn-danger">
+      Delete
+    </button>
+  </form>
+
+  <br />
+  <h2>
+    <a href="{% url 'detail_playlist' musicplaylist.id %}"
+      >{{musicplaylist.title}}</a
+    >
+  </h2>
+</div>
+{% endblock %}

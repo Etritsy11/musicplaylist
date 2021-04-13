@@ -1,0 +1,16 @@
+{% extends 'topmusicapp/base.html' %} {% block content %}
+<div class="container">
+  <h2>Edit playlist</h2>
+  <form method="POST">
+    {% csrf_token %}{% load widget_tweaks %} {% for field in form %}
+    <div class="form-group {% if field.errors %}alert alert-danger{% endif %}">
+      {{field.errors}} 
+      {{field.label_tag}}                 
+      {% render_field field class="form-control" %}
+    </div>
+    {% endfor %}<button type="submit" class="btn btn-dark"/>Save</button>
+  </form>
+<br>
+  <a href="{% url 'delete_playlist' musicplaylist.id %}" class="btn btn-danger">Delete this playlist</a>
+</div>
+{% endblock %}
