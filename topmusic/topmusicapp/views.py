@@ -13,9 +13,6 @@ import urllib
 import requests
 
 
-YOUTUBE_API_KEY = 'AIzaSyA79zWrEafIIZpyHOpuwr7JXbK1QAgHRDE'
-
-
 def home(request):
     recent_playlists = MusicPlaylist.objects.all().order_by('-id')[:3]
     popular_playlists = MusicPlaylist.objects.all()
